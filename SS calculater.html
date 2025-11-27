@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            background-color: #222222;
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #ffffff;
+        }
+
+        .subcal {
+            margin: 123px auto;
+            background-color: #333333;
+            height: 480px;
+            width: 322px;
+            box-shadow: 0px 0px 10px black;
+            border-radius: 7px;
+        }
+
+        .caldisplay {
+            height: 30%;
+            width: 100%;
+            padding: 12px;
+        }
+
+        .caldisplay input {
+            height: 70%;
+            width: 100%;
+            margin-top: 23px;
+            background-color: #444444;
+            border-radius: 7px;
+            border: none;
+            outline: none;
+            text-align: right;
+            font-size: xx-large;
+            padding-right: 10px;
+            border: 3px solid black;
+            box-shadow: 0px 0px 3px rgb(66, 66, 66);
+        }
+
+        .col1 {
+            height: 80%;
+            width: 100%;
+        }
+
+        .subcol1 {
+            display: flex;
+            justify-content: space-evenly;
+            padding-top: 15px;
+        }
+
+        button {
+            height: 46px;
+            width: 45px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 4px black;
+            outline: none;
+            font-size: larger;
+            text-align: center;
+            background: #555555;
+            color: #ffffff;
+            border: none;
+        }
+
+        .subcol2 {
+            display: flex;
+            justify-content: space-evenly;
+            padding-top: 15px;
+        }
+
+        .subcol3 {
+            display: flex;
+            justify-content: space-evenly;
+            padding-top: 15px;
+        }
+
+        .subcol4 {
+            display: flex;
+            justify-content: space-evenly;
+            padding-top: 15px;
+        }
+
+        .subcol5 {
+            display: flex;
+            padding-top: 15px;
+            padding-left: 23px;
+            gap: 28px;
+        }
+
+        .btn0 {
+            width: 200px;
+        }
+
+        button:hover {
+            background-color: #666666;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calmain">
+        <div class="subcal">
+            <div class="caldisplay">
+                <input id="display" type="text" placeholder="SS Calculator" value="">
+            </div>
+            <div class="col1">
+                <div class="subcol1">
+                    <button style="background-color: rgb(20, 147, 147);" onclick="cleardisplay()">C</button>
+                    <button style="background-color: red;" onclick="deldisplay()">DEL</button>
+                    <button onclick="appendval('/')">/</button>
+                    <button onclick="appendval('*')">*</button>
+                </div>
+                <div class="subcol2">
+                    <button onclick="appendval('7')">7</button>
+                    <button onclick="appendval('8')">8</button>
+                    <button onclick="appendval('9')">9</button>
+                    <button onclick="appendval('-')">-</button>
+                </div>
+                <div class="subcol3">
+                    <button onclick="appendval('4')">4</button>
+                    <button onclick="appendval('5')">5</button>
+                    <button onclick="appendval('6')">6</button>
+                    <button onclick="appendval('+')">+</button>
+                </div>
+                <div class="subcol4">
+                    <button onclick="appendval('1')">1</button>
+                    <button onclick="appendval('2')">2</button>
+                    <button onclick="appendval('3')">3</button>
+                    <button style="background-color: #ff9500" onclick="cal()">=</button>
+                </div>
+                <div class="subcol5">
+                    <button class="btn0" onclick="appendval('0')">0</button>
+                    <button onclick="appendval('.')">.</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const display = document.getElementById("display")
+        function appendval(value) {
+            display.value += value;
+        }
+        function cleardisplay() {
+            display.value = ''
+        }
+        function deldisplay() {
+            display.value = display.value.slice(0, -1)
+        }
+        function cal() {
+            try {
+                display.value = eval(display.value)
+            }
+            catch {
+                display.value = "error"
+            }
+        }
+    </script>
+</body>
+
+</html>
